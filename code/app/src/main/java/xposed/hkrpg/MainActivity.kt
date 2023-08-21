@@ -1,6 +1,7 @@
 package xposed.hkrpg
 
 import android.Manifest
+import android.app.Activity
 import android.content.Context
 import android.content.pm.ApplicationInfo
 import android.content.pm.PackageManager
@@ -8,6 +9,7 @@ import android.graphics.drawable.Drawable
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.snackbar.Snackbar
 import com.permissionx.guolindev.PermissionX
@@ -30,7 +32,8 @@ class MainActivity : AppCompatActivity() {
             binding.activeStatus.text = "未激活"
         }
 
-        grantPermission(this)
+
+//        grantPermission(this)
 
         val flags = PackageManager.GET_ACTIVITIES or PackageManager.GET_SERVICES or
                 PackageManager.GET_PROVIDERS or PackageManager.GET_RECEIVERS or
@@ -42,7 +45,7 @@ class MainActivity : AppCompatActivity() {
         binding.testtv.text = appinfo.loadLabel(pm) //= pm.getApplicationLabel(appinfo)
         binding.testtv.text = pm.getApplicationLabel(appinfo)
         binding.testiv.background = pm.getApplicationIcon(appinfo)
-        binding.testiv.background = getApkIcon(this, "/sdcard/12306.apk")
+//        binding.testiv.background = getApkIcon(this, "/sdcard/12306.apk")
 
         val a = pm.getPackageArchiveInfo("", flags)
 

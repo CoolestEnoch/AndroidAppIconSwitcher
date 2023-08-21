@@ -3,21 +3,19 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <queries>
+
         <!-- 获取已安装app，匹配的 intent -->
         <intent>
             <action android:name="android.intent.action.MAIN" />
 
             <category android:name="android.intent.category.LAUNCHER" />
         </intent>
-    </queries>
-
-    <!-- 存储权限 -->
-    <uses-permission
-        android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission
-        android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission
-        android:name="android.permission.MANAGE_EXTERNAL_STORAGE"/>
+    </queries> <!-- 联网权 -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> <!-- 存储权限 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -30,6 +28,10 @@
         android:theme="@style/Theme.崩坏丶12306"
         tools:targetApi="31">
         <activity
+            android:name=".HkrpgSplashActivity"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+            android:exported="true" />
+        <activity
             android:name=".MainActivity"
             android:exported="false">
             <intent-filter>
@@ -38,9 +40,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <meta-data
-        android:name="xposedmodule"
-        android:value="true" />
+            android:name="xposedmodule"
+            android:value="true" />
         <meta-data
             android:name="xposeddescription"
             android:value="@string/xposeddescription" />

@@ -1,15 +1,29 @@
 package xposed.hkrpg.xposedHooks
 
+import android.R
+import android.content.res.XModuleResources
+import android.provider.ContactsContract.Directory.PACKAGE_NAME
 import com.github.kyuubiran.ezxhelper.init.EzXHelperInit
 import com.github.kyuubiran.ezxhelper.utils.*
+import de.robv.android.xposed.IXposedHookInitPackageResources
 import de.robv.android.xposed.IXposedHookLoadPackage
 import de.robv.android.xposed.IXposedHookZygoteInit
+import de.robv.android.xposed.callbacks.XC_InitPackageResources.InitPackageResourcesParam
 import de.robv.android.xposed.callbacks.XC_LoadPackage
 
-class HookEntry : IXposedHookLoadPackage, IXposedHookZygoteInit {
+
+class HookEntry : IXposedHookLoadPackage, IXposedHookZygoteInit, IXposedHookInitPackageResources {
+
+//    private lateinit var MODULE_PATH:String
+//    private lateinit var mMoudleRes:XModuleResources
 
     override fun initZygote(startupParam: IXposedHookZygoteInit.StartupParam) {
         EzXHelperInit.initZygote(startupParam)
+//        MODULE_PATH = startupParam.modulePath
+    }
+
+    override fun handleInitPackageResources(resparam: InitPackageResourcesParam?) {
+//        mMoudleRes = XModuleResources.createInstance(MODULE_PATH, resparam.res)
     }
 
     @Throws(Throwable::class)
@@ -30,9 +44,13 @@ class HookEntry : IXposedHookLoadPackage, IXposedHookZygoteInit {
             }
         }
 
-        hookAndroidForXingQiongTieDaoAnd12306(lpparam)
         // 星穹铁道
-        /*if("android" == packageName){
-        }*/
+        if ("com.miHoYo.hkrpg" == packageName) {
+            hookHkrpg(lpparam)
+        }else if("com.MobileTicket" == packageName){
+            hook12306app(lpparam)
+        } else {
+            hookAndroidForXingQiongTieDaoAnd12306(lpparam)
+        }
     }
 }
