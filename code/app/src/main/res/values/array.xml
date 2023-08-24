@@ -2,6 +2,7 @@
 <resources>
     <string-array name="xposed_scope">
         <item>android</item>
+        <item>com.android.systemui</item>
         <item>com.android.quicksearchbox</item>
         <item>com.x7890.shortcutcreator</item>
         <item>com.x7890.shortcutcreator</item>

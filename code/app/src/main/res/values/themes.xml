@@ -13,4 +13,20 @@
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
+
+
+    <style name="MySplashScreen" parent="@style/Theme.崩坏丶12306">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <!-- 启动画面背景颜色 -->
+        <item name="android:windowSplashScreenBackground">@color/material_dynamic_neutral20</item>
+        <!-- 启动画面中间显示的图标，默认使用应用图标 -->
+        <item name="android:windowSplashScreenAnimatedIcon">@mipmap/appicon</item>
+        <!-- 启动画面中间显示的图标的背景，如果图标背景不透明则无效 -->
+        <item name="android:windowSplashScreenIconBackgroundColor">@color/material_dynamic_neutral50</item>
+        <!-- 启动画面启动画面底部的图片。 -->
+        <item name="android:windowSplashScreenBrandingImage">@mipmap/splash12306</item>
+        <!-- 启动画面在关闭之前显示的时长。最长时间为 1000 毫秒。 -->
+        <item name="android:windowSplashScreenAnimationDuration">1000</item>
+    </style>
 </resources>
